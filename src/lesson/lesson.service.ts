@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 
 import { Lesson } from './schemas/lesson.schema';
-import { CreateLessonInput } from './lesson.input';
+import { CreateLessonInput, AssignStudentsInput } from './lesson.input';
 
 @Injectable()
 export class LessonService {
@@ -31,7 +31,18 @@ export class LessonService {
       name,
       startDate,
       endDate,
+      students: [],
     });
+
+    return lesson;
+  }
+
+  async assignStudents({ lessonId, studentsIds }: AssignStudentsInput) {
+    const lesson = await this.getLesson(lessonId);
+
+    lesson.students = [ ...lesson.students, ...studentsIds ];
+
+    await lesson.save();
 
     return lesson;
   }
