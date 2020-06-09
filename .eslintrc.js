@@ -21,5 +21,6 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     semi: [ 'error', 'always' ],
+    'comma-dangle': [ 'error', 'always-multiline' ],
   },
 };

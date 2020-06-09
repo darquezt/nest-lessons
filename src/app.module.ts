@@ -4,6 +4,7 @@ import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 
 import { LessonModule } from './lesson/lesson.module';
+import { StudentModule } from './student/student.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { LessonModule } from './lesson/lesson.module';
       autoSchemaFile: true,
     }),
     LessonModule,
+    StudentModule,
   ],
 })
 export class AppModule {}

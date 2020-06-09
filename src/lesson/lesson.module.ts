@@ -8,7 +8,7 @@ import { LessonService } from './lesson.service';
   imports: [
     MongooseModule.forFeature([
       { name: Lesson.name, schema: LessonSchema },
-    ])
+    ]),
   ],
   providers: [
     LessonResolver,
