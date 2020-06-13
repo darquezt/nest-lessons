@@ -28,4 +28,14 @@ export class StudentService {
 
     return student;
   }
+
+  async getStudentsById(studentIds: string[]) {
+    const students = await this.studentModel.find({
+      _id: {
+        $in: studentIds,
+      },
+    });
+
+    return students;
+  }
 }
